@@ -1,0 +1,34 @@
+.app {
+    padding-top: 30px;
+    text-align: center;
+    width: 300px;
+    @media screen and (min-width: 750px) {
+        width: 600px;
+    }
+    @media screen and (min-width: 1000px) {
+        width: 800px;
+    }
+}
+.bar{
+    position: relative;
+}
+.percentage{
+    position: absolute;
+    top: 2px;
+    right: 43%;
+    font-size: 1em;
+    @media screen and (min-width: 750px) {
+        font-size: 2em;
+    }
+    @media screen and (min-width: 1000px) {
+        top: 8px;
+        right: 45%;
+        font-size: 2em;
+    }
+}
+.buttons{
+    padding: 20px 0;
+}
+.buttons button{
+    padding-right: 20px;
+}

@@ -29,17 +29,15 @@ export function fetchProgressBars(){
 export default function reducer(state = {}, action) {
     switch (action.type) {
         case RECEIVE_PROGRESS_BARS:
-            return Object.assign({}, state, {
+            return {...state,
                 buttons: action.buttons,
                 bars: action.bars,
                 limit: action.limit
-            });
+            };
         case MODIFY_PROGRESS_BARS:
-            console.log('state', state);
-            console.log('action', action);
-            let newState = Object.assign({}, state);
+            let newState = {...state};
             let totalPercentage = Math.ceil(newState.bars[action.bar]/newState.limit*100) + action.value;
-            console.log('totalPercentage', totalPercentage);
+
             if(totalPercentage < 0 ){
                 newState.bars[action.bar] = 0;
             }else if(totalPercentage > 100){

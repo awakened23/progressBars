@@ -8,10 +8,6 @@ class ProgressBars extends Component {
 
     constructor(props){
         super(props);
-        this.renderButtons = this.renderButtons.bind(this);
-        this.renderDropdown = this.renderDropdown.bind(this);
-        this.modifyBar = this.modifyBar.bind(this);
-
         this.state= {selectedBar: 0};
     }
     componentWillMount(){
@@ -19,7 +15,6 @@ class ProgressBars extends Component {
     }
 
     render() {
-
         const {progressBars} = this.props;
 
         return (
@@ -47,10 +42,6 @@ class ProgressBars extends Component {
                 return {value: idx, label: 'bar ' + (idx+1), clearableValue: false}
             });
 
-            function logChange(val) {
-              console.log("Selected: " + JSON.stringify(val));
-            }
-
             return (
                 <Select
                   value={this.state.selectedBar}
@@ -70,8 +61,8 @@ class ProgressBars extends Component {
         if(bars){
             return bars.map((bar, idx) =>
             <div className="bar" key={idx}>
-                <Line percent={(bar/limit)*100} strokeWidth="7" trailWidth="7"/>
-                <span className="percentage">{Math.ceil((bar/limit)*100)}%</span>
+                <Line percent={Math.floor((bar/limit)*100)} strokeWidth="7" trailWidth="7" strokeColor={(bar/limit)===1?'red':'#2db7f5'}/>
+                <span className="percentage">{Math.floor((bar/limit)*100)}%</span>
             </div>
             );
         }

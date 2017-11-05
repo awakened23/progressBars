@@ -7,6 +7,6 @@ describe('fetchProgressBars', () => {
 
         fetchProgressBars('dispatch', 'actionCreator');
 
-        expect(fetcher.fetchFromApi).toHaveBeenCalledWith('dispatch', 'http://pb-api.herokuapp.com/bars', 'actionCreator');
+        expect(fetcher.fetchFromApi).toHaveBeenCalledWith('dispatch', 'http://localhost:3001/bars', 'actionCreator');
     });
 });
